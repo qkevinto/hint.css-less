@@ -1,13 +1,12 @@
 {
-  "name": "hint.css",
-  "repo": "chinchang/hint.css",
+  "name": "hint.css-less",
+  "repo": "qkevinto/hint.css-less",
   "description": "A tooltip library in CSS for your lovely websites.",
   "version": "1.3.6",
-  "keywords": ["tooltip", "css"],
+  "keywords": ["tooltip", "css", "less"],
   "dependencies": {},
   "development": {},
   "styles": [
     "hint.min.css"
   ]
 }
-

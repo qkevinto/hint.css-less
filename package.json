@@ -1,6 +1,6 @@
 {
-  "name": "hint",
-  "title": "Hint.css",
+  "name": "hint-less",
+  "title": "Hint.css LESS",
   "description": "A tooltip library in CSS for your lovely websites.",
   "version": "2.2.0",
   "style": "hint.css",
@@ -10,6 +10,13 @@
     "email": "chinchang457@gmail.com",
     "url": "http://kushagragour.in"
   },
+  "contributors": [
+    {
+      "name": "Kevin To",
+      "email": "hello@kevinto.me",
+      "url": "http://kevinto.me"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/chinchang/hint.css.git"
@@ -21,7 +28,7 @@
   "keywords": [
     "tooltip",
     "ui",
-    "sass",
+    "less",
     "css",
     "help",
     "hint"
@@ -30,7 +37,7 @@
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-cssmin": "~0.12.3",
+    "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-sass": "^1.1.0"
   }
 }

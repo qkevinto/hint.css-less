@@ -1,4 +1,4 @@
-**Hint** is written in [SASS](http://sass-lang.com/).
+**Hint LESS** is written in [LESS](http://lesscss.org/).
 
 #Setup
 1. [Fork **Hint.css**](https://help.github.com/articles/fork-a-repo) and clone it on your system.
@@ -12,7 +12,7 @@ Also there are four additional Grunt tasks required to build the library:
 
 1. [grunt-contrib-cssmin](https://npmjs.org/package/grunt-contrib-cssmin)
 
-2. [grunt-sass](https://www.npmjs.com/package/grunt-sass)
+2. [grunt-contrib-less](https://www.npmjs.com/package/grunt-contrib-less)
 
 3. [grunt-contrib-concat](https://www.npmjs.com/package/grunt-contrib-concat)
 

@@ -1,0 +1,46 @@
+/**
+ * source: hint-always.less
+ *
+ * Defines a persisted tooltip which shows always.
+ *
+ * Classes added:
+ * 	1) hint--always
+ *
+ */
+
+.@{hintPrefix}always {
+  &:after,
+  &:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.@{hintPrefix}top {
+    .set-margin(translateY, -1, -50%);
+
+    &-left {
+      .set-margin(translateY, -1, -100%);
+    }
+    &-right {
+      .set-margin(translateY, -1, 0);
+    }
+  }
+
+  &.@{hintPrefix}bottom {
+    .set-margin(translateY, 1, -50%);
+    &-left {
+      .set-margin(translateY, 1, -100%);
+    }
+    &-right {
+      .set-margin(translateY, 1, 0);
+    }
+  }
+
+  &.@{hintPrefix}left {
+    .set-margin(translateX, -1);
+  }
+
+  &.@{hintPrefix}right {
+    .set-margin(translateX, 1);
+  }
+}

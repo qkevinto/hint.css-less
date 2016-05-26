@@ -1,0 +1,139 @@
+/**
+ * source: hint-position.less
+ *
+ * Defines the positoning logic for the tooltips.
+ *
+ * Classes added:
+ * 	1) hint--top
+ * 	2) hint--bottom
+ * 	3) hint--left
+ * 	4) hint--right
+ */
+
+.vertical-positioned-tooltip(@propertyY, @transitionDirection, @xDirection:0) {
+  &:before {
+    // get the arrow out
+    margin-@{propertyY}: -2 * @hintArrowBorderWidth;
+  }
+
+  &:before,
+  &:after {
+    @{propertyY}: 100%;
+    left: 50%;
+  }
+
+  @translateX: -50%;
+
+  & when (@xDirection = -1) {
+    @translateX: -100%;
+  }
+  & when (@xDirection = 1) {
+    @translateX: 0;
+  }
+
+  &:after,
+  &:before {
+    .vendor(transform, translateX(@translateX));
+  }
+
+  &:after {
+    & when not (@xDirection = 0) {
+      // bring back the tooltip by some offset so that arrow doesn't stick at end
+      margin-left: -@xDirection * @hintArrowOffsetX;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .set-margin(translateY, @transitionDirection, @translateX);
+  }
+}
+
+.horizontal-positioned-tooltip(@propertyX, @transitionDirection) {
+  &:before {
+    // get the arrow out
+    margin-@{propertyX}: -2 * @hintArrowBorderWidth;
+    // bring back to center
+    margin-bottom: -1 * @hintArrowBorderWidth;
+  }
+
+  &:after {
+    // bring back to center
+    margin-bottom: -1 * floor(@hintTooltipHeight / 2);
+  }
+
+  &:before,
+  &:after {
+    @{propertyX}: 100%;
+    bottom: 50%;
+  }
+
+  &:hover,
+  &:focus {
+    .set-margin(translateX, @transitionDirection);
+  }
+}
+
+
+/**
+ * set default color for tooltip arrows
+ */
+.arrow-border-color(@hintDefaultColor);
+
+/**
+ * top tooltip
+ */
+.@{hintPrefix}top {
+  .vertical-positioned-tooltip(bottom, -1);
+}
+
+/**
+ * bottom tooltip
+ */
+.@{hintPrefix}bottom {
+  .vertical-positioned-tooltip(top, 1);
+}
+
+/**
+ * right tooltip
+ */
+.@{hintPrefix}right {
+  .horizontal-positioned-tooltip(left, 1);
+}
+
+/**
+ * left tooltip
+ */
+.@{hintPrefix}left {
+  .horizontal-positioned-tooltip(right, -1);
+}
+
+/**
+ * top-left tooltip
+ */
+.@{hintPrefix}top-left {
+  .vertical-positioned-tooltip(bottom, -1, -1);
+}
+
+
+/**
+ * top-right tooltip
+ */
+.@{hintPrefix}top-right {
+  .vertical-positioned-tooltip(bottom, -1, 1);
+}
+
+/**
+ * bottom-left tooltip
+ */
+.@{hintPrefix}bottom-left {
+  .vertical-positioned-tooltip(top, 1, -1);
+}
+
+
+/**
+ * bottom-right tooltip
+ */
+.@{hintPrefix}bottom-right {
+  .vertical-positioned-tooltip(top, 1, 1);
+}

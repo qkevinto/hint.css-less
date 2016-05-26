@@ -1,0 +1,61 @@
+// hint-mixins.less
+//
+// Place to store common mixins.
+
+// Vendor prefixer mixin.
+.vendor(@property, @value) {
+  -webkit-@{property}: @value;
+  -moz-@{property}: @value;
+  @{property}: @value;
+}
+
+// Generates border-color rules for all possible positions
+.arrow-border-color(@color) {
+  &.@{hintPrefix}top-left:before {
+    border-top-color: @color;
+  }
+
+  &.@{hintPrefix}top-right:before {
+    border-top-color: @color;
+  }
+
+  &.@{hintPrefix}bottom-left:before {
+    border-bottom-color: @color;
+  }
+
+  &.@{hintPrefix}bottom-right:before {
+    border-bottom-color: @color;
+  }
+
+  &.@{hintPrefix}top:before {
+    border-top-color: @color;
+  }
+
+  &.@{hintPrefix}bottom:before {
+    border-bottom-color: @color;
+  }
+
+  &.@{hintPrefix}left:before {
+    border-left-color: @color;
+  }
+
+  &.@{hintPrefix}right:before {
+    border-right-color: @color;
+  }
+}
+
+// mixin to set margin on tooltip using translate transform
+// @property
+.set-margin(@property, @transitionDirection, @translateX: 0) {
+  @eval: @hintTransitionDistance * @transitionDirection;
+  @value: ~"@{property}(@{eval})";
+  &:after,
+  &:before {
+    & when not (@translateX = 0) {
+      .vendor(transform, translateX(@translateX) @value);
+    }
+    & when (@translateX = 0) {
+      .vendor(transform, @value);
+    }
+  }
+}

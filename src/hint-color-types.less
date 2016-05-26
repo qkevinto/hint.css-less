@@ -1,0 +1,52 @@
+/**
+ * source: hint-color-types.less
+ *
+ * Contains tooltips of various types based on color differences.
+ *
+ * Classes added:
+ * 	1) hint--error
+ * 	2) hint--warning
+ * 	3) hint--info
+ * 	4) hint--success
+ *
+ */
+
+
+// mixin to generate different color style tooltips
+.hint-type(@color) {
+  &:after {
+    background-color: @color;
+    text-shadow: 0 -1px 0px darken(@color, @hintTextShadowDarkenAmount);
+  }
+
+  // generate arrow color style
+  .arrow-border-color(@color);
+}
+
+/**
+ * Error
+ */
+.@{hintPrefix}error {
+  .hint-type(@hintErrorColor);
+}
+
+/**
+ * Warning
+ */
+.@{hintPrefix}warning {
+  .hint-type(@hintWarningColor)
+}
+
+/**
+ * Info
+ */
+.@{hintPrefix}info {
+  .hint-type(@hintInfoColor)
+}
+
+/**
+ * Success
+ */
+.@{hintPrefix}success {
+  .hint-type(@hintSuccessColor)
+}
